@@ -29,6 +29,7 @@
 |image|string||○*1|
 |user_id|integer|foreign_key: true|○*1|
 |group_id|integer|foreign_key: false|-|
+
 *1 連結index
 
 ### association
