@@ -25,11 +25,11 @@
 ## messages table
 |Column|Type|Options|index|
 |------|----|-------|-----|
-|body|text||○[^1]|
-|image|string||○[^1]|
-|user_id|integer|foreign_key: true|○[^1]|
+|body|text||○*1|
+|image|string||○*1|
+|user_id|integer|foreign_key: true|○*1|
 |group_id|integer|foreign_key: false|-|
-[^1]:連結index
+*1 連結index
 
 ### association
 - belongs_to: user
