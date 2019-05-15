@@ -1,0 +1,39 @@
+.side-bar{
+  height: 100%;
+  width: 300px;
+  background-color: #2f3e51;
+  color: #ffffff;
+  float: left;
+  &__header{
+    height: $header_height;
+    background-color: #253142;
+    @include clearfix();
+    &__user-name{
+      font-size: 16px;
+      margin: 0 20px;
+      line-height: $header_height;
+      float: left;
+    }
+    .fa.fa-cog{
+      float: right;
+      margin: 40px 20px 0 5px;
+      color: #ffffff;
+    }
+    .fa.fa-edit{
+      margin: 40px 0 0 0;
+      float: right;
+      color: #ffffff;
+    }
+  }
+  .side-bar__group{
+    margin: 20px 20px 40px;
+    color: #fff;
+    &__name{
+      font-size: 15px;
+      }
+    &__message{
+      font-size: 11px;
+      margin: 5px 0 0 0;  
+    }
+  }
+}

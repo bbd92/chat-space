@@ -1,0 +1,26 @@
+%header notice
+.side-bar
+  .side-bar__header
+    %h1.side-bar__header__user-name user
+    = link_to method: :get do
+      %li.fa.fa-cog
+    = link_to method: :get do
+      %li.fa.fa-edit
+  .groups
+    = render partial: "group"
+.messages
+  .messages__header
+    %h1.messages__header__group-name Group
+    %li.messages__header__members Member : user1 user2
+    =link_to method: :get do
+      .messages__header__edit Edit
+  = render partial: "message"
+
+  .message-form
+    = form_tag method: :post do
+      %input{type: 'text', placeholder: 'type a message', class: 'message-form__input'}
+      %input#message-form__file{type: 'file'}
+      %label{for: 'message-form__file'}
+        %li.fa.fa-image.fa-lg
+    =link_to method: :post do
+      .message-form__send Send
