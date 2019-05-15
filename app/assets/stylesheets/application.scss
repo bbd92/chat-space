@@ -1,5 +1,11 @@
+$header_height:100px;
+$light_blue:#38AEF0;
+
 @import "./reset";
 @import "font-awesome";
+@import "./clearfix";
+@import "./side-bar";
+@import "./message.scss";
 
 html,body{
   height: 100%;
@@ -8,44 +14,12 @@ html,body{
 li{
   list-style: none;
 }
+
 header{
   height: 25px;
-  background-color: #38AEF0;
+  background-color: $light_blue;
   font-size: 20px;
   color: #ffffff;
   text-align: center;
 }
 
-.left-contents{
-  height: 100%;
-  width: 300px;
-  background-color: #2f3e51;
-  color: #ffffff;
-  &__header{
-    height: 90px;
-    background-color: #253142;
-    &__user-name{
-      font-size: 16px;
-      margin: 0 20px;
-      line-height: 90px;
-      float: left;
-    }
-    &--cog{
-      line-height: 90px;
-      float: right;
-      margin: 0 20px 0 5px;
-    }
-    &--edit{
-      line-height: 90px;
-      float: right;
-    }
-  }
-  .left-contents__group{
-  font-size: 15px;
-  margin: 20px 20px 0px 20px;  
-  }
-  .left-contents__message{
-    font-size: 11px;
-    margin: 5px 20px 20px 20px;  
-  }
-}
