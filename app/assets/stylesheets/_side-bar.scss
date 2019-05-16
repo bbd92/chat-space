@@ -14,15 +14,15 @@
       line-height: $header_height;
       float: left;
     }
-    .fa.fa-cog{
+    &__pencil{
+      position: absolute;
+      left: 250px;
       float: right;
-      margin: 40px 20px 0 5px;
-      color: #ffffff;
     }
-    .fa.fa-edit{
-      margin: 40px 0 0 0;
+    &__cog{
+      position: absolute;
+      left: 270px;
       float: right;
-      color: #ffffff;
     }
   }
   .side-bar__group{
@@ -36,4 +36,10 @@
       margin: 5px 0 0 0;  
     }
   }
+}
+.icon{
+  color: white;
+  position: absolute;
+  float: right;
+  top: 40px; 
 }
