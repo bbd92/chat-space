@@ -1,27 +1,26 @@
-.side-bar
-  .side-bar__header
-    %h1.side-bar__header__user-name= current_user.name
-    %li.side-bar__header__pencil
-      = link_to new_group_path do
-        = fa_icon 'pencil-square-o', class: 'icon'
-    %li.side-bar__header__cog
-      = link_to edit_user_path(current_user) do
-        = fa_icon 'cog', class: 'icon'
-  .groups
-    = render partial: "group"
-.messages
-  .messages__header
-    %h1.messages__header__group-name Group
-    %li.messages__header__members Member : user1 user2
-    =link_to method: :get do
-      .messages__header__edit Edit
-  = render partial: "message"
+.wrapper
+  = render partial: "shared/side_bar"
+  .messages
+    .messages__header
+      %h1.messages__header__group-name
+        = @group.name
+      %li.messages__header__members Member : user1 user2
+      = link_to edit_group_path(@group) do
+        .messages__header__edit Edit
+    = render partial: "message"
 
-  .message-form
-    = form_tag method: :post do
-      %input{type: 'text', placeholder: 'type a message', class: 'message-form__input'}
-      %input#message-form__file{type: 'file'}
-      %label{for: 'message-form__file'}
-        %li.fa.fa-image.fa-lg
-    =link_to method: :post do
-      .message-form__send Send
+    -# .message-form
+    -#   = form_for [@group, @message] do |f|
+    -#     %f.text_field :text, placeholder: 'type a message', class: 'message-form__input'
+    -#     .form__mask
+    -#       = f.label :image, class: 'form__mask__image' do
+    -#         = fa_icon 'picture-o', class: 'icon'
+    -#         = f.file_field :image, class: 'hidden'
+    -#     = f.submit 'Send', class: 'form__submit'
+
+
+        %input#message-form__file{type: 'file'}
+        %label{for: 'message-form__file'}
+          %li.fa.fa-image.fa-lg
+      =link_to method: :post do
+        .message-form__send Send

@@ -3,7 +3,6 @@
   width: calc(100% - 300px);
   float: right;
   background-color: #fafafa;
-  @include clearfix();
   &__header{
     height: $header_height;
     border-color: #eeeeee;
