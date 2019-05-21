@@ -3,6 +3,7 @@ $side_group_name: 15px;
 $side_group_message: 11px;
 
 .side-bar {
+  height: 100%;
   box-sizing: border-box;
   color: $white;
   width: 300px;
@@ -46,6 +47,7 @@ $side_group_message: 11px;
         color: $white;
         font-size: $side_group_message;
         margin-top: 5px;
+        overflow-wrap: break-word;
       }
     }
   }
