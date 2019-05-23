@@ -1,5 +1,8 @@
-.messages__box
-  .messages__box__message
-    %span.messages__box__message__name user
-    %span.messages__box__message__time 2019/01/01(Mon) 12:00:00
-    .messages__box__message__text  texttexttext
+.messages__boxes__box
+  .messages__boxes__box__message
+    %span.messages__boxes__box__message__name= message.user.name
+    %span.messages__boxes__box__message__time= message.created_at.strftime("%Y/%m/%d %H:%M")
+    - if message.text.present?
+      .messages__boxes__box__message__text
+        = message.text
+    = image_tag message.image.url, class: 'messages__boxes__box__message__image' if message.image.present?
