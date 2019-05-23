@@ -1,39 +1,54 @@
-.side-bar{
+$side_header_font: 16px;
+$side_group_name: 15px;
+$side_group_message: 11px;
+
+.side-bar {
   height: 100%;
+  box-sizing: border-box;
+  color: $white;
   width: 300px;
-  background-color: #2f3e51;
-  color: #ffffff;
   float: left;
-  &__header{
-    height: $header_height;
-    background-color: #253142;
-    @include clearfix();
-    &__user-name{
-      font-size: 16px;
-      margin: 0 20px;
-      line-height: $header_height;
-      float: left;
-    }
-    .fa.fa-cog{
-      float: right;
-      margin: 40px 20px 0 5px;
-      color: #ffffff;
-    }
-    .fa.fa-edit{
-      margin: 40px 0 0 0;
-      float: right;
-      color: #ffffff;
+  .header {
+    background-color: $side_blue_dark;
+    height: 100px;
+    line-height: 100px;
+    padding: 0 20px;
+    &__box{
+      &__name {
+        font-size: $side_header_font;
+        font-weight: bold;
+        float: left;
+      }
+      &__lists {
+        float: right;
+        .list {
+          display: inline-block;
+        }
+        .icon {
+          color: $white;
+          font-size: $side_header_font;
+        }
+      }
     }
   }
-  .side-bar__group{
-    margin: 20px 20px 40px;
-    color: #fff;
-    &__name{
-      font-size: 15px;
+
+  .groups {
+    background-color: $side_blue_light;
+    height: calc(100vh - 100px);
+    padding: 0 20px;
+    .group {
+      box-sizing: border-box;
+      padding: 20px 0 40px;
+      &__name {
+        color: $white;
+        font-size: $side_group_name;
       }
-    &__message{
-      font-size: 11px;
-      margin: 5px 0 0 0;  
+      &__message {
+        color: $white;
+        font-size: $side_group_message;
+        margin-top: 5px;
+        overflow-wrap: break-word;
+      }
     }
   }
 }
