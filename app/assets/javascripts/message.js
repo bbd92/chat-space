@@ -33,8 +33,7 @@ $(function(){
     .done(function(message){
       var html = buildHTML(message);
       $(".messages__boxes").append(html);
-      $(".message-form__input").val("");
-      $("#message_image").val("");
+      $('form')[0].reset();
     })
 
     .fail(function(){
