@@ -1,14 +1,21 @@
 $(function(){
-  function buildHAML(message){
-    var haml = `.messages__boxes__box
-    .messages__boxes__box__message
-      %span.messages__boxes__box__message__name= message.user.name
-      %span.messages__boxes__box__message__time= message.created_at.strftime("%Y/%m/%d %H:%M")
-      - if message.text.present?
-        .messages__boxes__box__message__text
-          = message.text
-      = image_tag message.image.url, class: 'messages__boxes__box__message__image' if message.image.present?`
-    return haml
+  function buildHTML(message){
+    var image = ""
+    if(message.image.url){
+      var image = `<img src='${message.image.url}' class='messages__boxes__box__message__image'>`
+    }
+    var html = `<div class="messages__boxes__box">
+                  <div class="messages__boxes__box__message">
+                    <span class="messages__boxes__box__message__name">${message.user_name}
+                    </span>
+                    <span class="messages__boxes__box__message__time">${message.date}
+                    </span>
+                    <div class="messages__boxes__box__message__text">${message.text}
+                    </div>
+                    ${image}
+                  </div>
+                </div>`
+    return html
   };
 
   $('#new_message').on('submit', function(e){
@@ -20,22 +27,30 @@ $(function(){
       type: "POST",
       url: url,
       data: formData,
-      datatype: 'json',
+      dataType: 'json',
       processData: false,
       contentType: false
     })
 
     .done(function(message){
-      var haml = buildHAML(message);
-      $(".messages__boxes").append(haml);
+      var html = buildHTML(message);
+      $(".messages__boxes").append(html);
       $(".message-form__input").val("");
+      $("#message_image").val("");
     })
 
     .fail(function(){
       alert('error');
     });
     
-    $(".messages__boxes").animate({scrollBottom:0});
-    return false;
+    $(".messages__boxes").animate({scrollTop:$('.messages__boxes')[0].scrollHeight}, "fast");
+
+    function ableButtom(){
+      $('.form__submit').attr('disabled', false)
+    };
+    
+    setTimeout(function(){
+      ableButtom()},1000
+    );
   });
 });
