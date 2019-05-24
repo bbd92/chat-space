@@ -1,5 +1,20 @@
 $(function(){
   $('#user-search-field').on('keyup', function(){
-    console.log("イベント発火")
+    var input = $(this).val()
+    
+    $.ajax({
+      type: "GET",
+      url: '/users',
+      data: { word: input },
+      dataType: 'json',
+    })
+
+    .done(function(users){
+      console.log(users)
+    })
+
+    .false(function(){
+      console.log("false")
+    })
   })
 });
