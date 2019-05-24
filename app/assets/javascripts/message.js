@@ -1,9 +1,7 @@
 $(function(){
   function buildHTML(message){
-    var image = ""
-    if(message.image.url){
-      var image = `<img src='${message.image.url}' class='messages__boxes__box__message__image'>`
-    }
+    message.image.url ?
+      image = `<img src='${message.image.url}' class='messages__boxes__box__message__image'>` : image = ""
     var html = `<div class="messages__boxes__box">
                   <div class="messages__boxes__box__message">
                     <span class="messages__boxes__box__message__name">${message.user_name}
@@ -48,7 +46,7 @@ $(function(){
     function ableButtom(){
       $('.form__submit').attr('disabled', false)
     };
-    
+
     setTimeout(function(){
       ableButtom()},1000
     );
