@@ -36,6 +36,8 @@ $side_group_message: 11px;
     background-color: $side_blue_light;
     height: calc(100vh - 100px);
     padding: 0 20px;
+    overflow: scroll;
+    overflow-wrap: break-word;
     .group {
       box-sizing: border-box;
       padding: 20px 0 40px;
